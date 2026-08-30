@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMONIC - The Ultimate WhatsApp AI Beast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 64, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(255, 128, 0, 0.1) 0%, transparent 50%);
+            animation: backgroundShift 20s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            33% { transform: scale(1.1) rotate(120deg); }
+            66% { transform: scale(0.9) rotate(240deg); }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.8), transparent);
+            animation: laserSweep 3s ease-in-out infinite;
+        }
+
+        @keyframes laserSweep {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: -100%; }
+        }
+
+        .header h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 5em;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff0000, #ff4000, #ff8000, #ff4000, #ff0000);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite, textGlow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes textGlow {
+            from { filter: drop-shadow(0 0 10px #ff0000); }
+            to { filter: drop-shadow(0 0 30px #ff4000) drop-shadow(0 0 40px #ff8000); }
+        }
+
+        .header .subtitle {
+            font-size: 1.8em;
+            color: #ff4000;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .header .tagline {
+            font-size: 1.2em;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 1s both;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .version-badge {
+            background: linear-gradient(45deg, #ff0000, #000000, #ff0000);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 40px;
+            border: 3px solid #ff4000;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            animation: pulse 2s infinite, float 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .version-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff0000, #ff4000, #ff8000);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: #ff4000;
+            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.3);
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-card h3 {
+            font-size: 3em;
+            font-weight: 700;
+            color: #ff4000;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        .stat-card p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .features-section {
+            margin: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #ff4000;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff0000, #ff4000, #ff8000);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(0, 0, 0, 0.8));
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 0, 0, 0.1), rgba(255, 64, 0, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            border-color: #ff4000;
+            box-shadow: 0 25px 50px rgba(255, 0, 0, 0.4);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card .icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .feature-card h4 {
+            color: #ff4000;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .feature-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-card li {
+            margin: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            opacity: 0.9;
+        }
+
+        .feature-card li::before {
+            content: '🔥';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .commands-showcase {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(255, 0, 0, 0.1));
+            border-radius: 20px;
+            padding: 50px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .commands-showcase::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff0000, #ff4000, #ff8000, #ff4000, #ff0000);
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        .commands-title {
+            text-align: center;
+            font-size: 2.2em;
+            color: #ff4000;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .command-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .command-category {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid rgba(255, 0, 0, 0.2);
+        }
+
+        .command-category h5 {
+            color: #ff8000;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #ff4000;
+            padding-bottom: 5px;
+        }
+
+        .command-item {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        .command-item:hover {
+            background: rgba(255, 0, 0, 0.1);
+            border-color: #ff4000;
+            transform: translateX(5px);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.1), rgba(0, 0, 0, 0.9));
+            border-radius: 20px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,0,0,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,64,0,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,128,0,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .cta-title {
+            font-size: 3em;
+            font-weight: 900;
+            color: #ff0000;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+
+        .cta-subtitle {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff0000, #ff4000, #ff8000);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 0, 0, 0.5);
+            border-color: #ff4000;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 2px solid rgba(255, 0, 0, 0.3);
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h6 {
+            color: #ff4000;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .footer-section p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 0, 0, 0.2);
+            padding-top: 20px;
+            opacity: 0.7;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-in-left { animation: slideInLeft 1s ease-out both; }
+        .slide-in-right { animation: slideInRight 1s ease-out both; }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 3em;
+            }
+
+            .header .subtitle {
+                font-size: 1.4em;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .command-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-title {
+                font-size: 2em;
+            }
+        }
+
+        /* Particle Effect */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ff0000;
+            border-radius: 50%;
+            animation: particleFloat 10s linear infinite;
+        }
+
+        .particle:nth-child(2n) {
+            background: #ff4000;
+            animation-duration: 8s;
+        }
+
+        .particle:nth-child(3n) {
+            background: #ff8000;
+            animation-duration: 12s;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <header class="header">
+            <h1>DEMONIC</h1>
+            <div class="subtitle">The Ultimate WhatsApp AI Beast</div>
+            <div class="tagline">Unleashing chaos, power, and intelligence in one unstoppable force</div>
+            <div class="version-badge">Version 1.7.0 - Professional Edition</div>
+        </header>
+
+        <section class="stats-grid">
+            <div class="stat-card slide-in-left">
+                <h3>120+</h3>
+                <p>Commands</p>
+            </div>
+            <div class="stat-card slide-in-left" style="animation-delay: 0.2s;">
+                <h3>4 AI</h3>
+                <p>Personalities</p>
+            </div>
+            <div class="stat-card slide-in-right" style="animation-delay: 0.4s;">
+                <h3>24/7</h3>
+                <p>Operation</p>
+            </div>
+            <div class="stat-card slide-in-right" style="animation-delay: 0.6s;">
+                <h3>∞</h3>
+                <p>Power</p>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <h2 class="section-title">🔥 Core Capabilities</h2>
+            <div class="features-grid">
+                <div class="feature-card slide-in-left">
+                    <div class="icon">🤖</div>
+                    <h4>AI Integration</h4>
+                    <ul>
+                        <li>OpenAI GPT Integration</li>
+                        <li>Gemini AI Support</li>
+                        <li>Vision AI Analysis</li>
+                        <li>4 Chatbot Personalities</li>
+                        <li>Advanced Reasoning</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card slide-in-right">
+                    <div class="icon">🎬</div>
+                    <h4>Media Processing</h4>
+                    <ul>
+                        <li>Universal Converter</li>
+                        <li>HD Quality Processing</li>
+                        <li>Batch Operations</li>
+                        <li>Format Optimization</li>
+                        <li>Instant Downloads</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card slide-in-left" style="animation-delay: 0.2s;">
+                    <div class="icon">🛡️</div>
+                    <h4>Security System</h4>
+                    <ul>
+                        <li>Advanced Anti-Link</li>
+                        <li>Group Defense Matrix</li>
+                        <li>Spam Prevention AI</li>
+                        <li>User Management</li>
+                        <li>Threat Detection</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card slide-in-right" style="animation-delay: 0.2s;">
+                    <div class="icon">🎪</div>
+                    <h4>Entertainment</h4>
+                    <ul>
+                        <li>Interactive Games</li>
+                        <li>AI-Powered Content</li>
+                        <li>Social Features</li>
+                        <li>Random Generators</li>
+                        <li>Scoring System</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card slide-in-left" style="animation-delay: 0.4s;">
+                    <div class="icon">⚡</div>
+                    <h4>Performance</h4>
+                    <ul>
+                        <li>Auto-Restart System</li>
+                        <li>Health Monitoring</li>
+                        <li>Memory Optimization</li>
+                        <li>24/7 Uptime</li>
+                        <li>Lightning Fast</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card slide-in-right" style="animation-delay: 0.4s;">
+                    <div class="icon">🔧</div>
+                    <h4>Advanced Tools</h4>
+                    <ul>
+                        <li>Bug System Engine</li>
+                        <li>API Integrations</li>
+                        <li>Custom Commands</li>
+                        <li>Analytics Dashboard</li>
+                        <li>Remote Management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="commands-showcase">
+            <h2 class="commands-title">🚀 Command Arsenal</h2>
+            <div class="command-categories">
+                <div class="command-category">
+                    <h5>👑 Owner Commands</h5>
+                    <div class="command-item">/status • System status</div>
+                    <div class="command-item">/brain • Feature overview</div>
+                    <div class="command-item">/setopenai • AI config</div>
+                    <div class="command-item">/broadcast • Mass messaging</div>
+                    <div class="command-item">/website • HTML showcase</div>
+                </div>
+
+                <div class="command-category">
+                    <h5>🤖 AI Chatbots</h5>
+                    <div class="command-item">/chatbot1 • Professional AI</div>
+                    <div class="command-item">/chatbot2 • Business Pro</div>
+                    <div class="command-item">/chatbot3 • Playful Companion</div>
+                    <div class="command-item">/chatbot • Demon Guide</div>
+                    <div class="command-item">/chatbotstatus • AI settings</div>
+                </div>
+
+                <div class="command-category">
+                    <h5>🎬 Media Tools</h5>
+                    <div class="command-item">/tosticker • Convert to sticker</div>
+                    <div class="command-item">/toimage • Sticker to image</div>
+                    <div class="command-item">/ytdl • YouTube download</div>
+                    <div class="command-item">/analyze • AI vision</div>
+                    <div class="command-item">/tovideo • Format conversion</div>
+                </div>
+
+                <div class="command-category">
+                    <h5>🛡️ Protection</h5>
+                    <div class="command-item">/antilink on • URL blocking</div>
+                    <div class="command-item">/group-defense on • Full shield</div>
+                    <div class="command-item">/autotyperecord on • Presence loop</div>
+                    <div class="command-item">/antibug • Protection toggle</div>
+                    <div class="command-item">/overkill • Maximum power</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 class="cta-title">READY TO UNLEASH THE BEAST?</h2>
+            <p class="cta-subtitle">Join thousands who have experienced the power of DEMONIC</p>
+            <a href="#" class="cta-button" onclick="alert('DEMONIC Bot - The Ultimate WhatsApp AI Beast!')">⚡ ACTIVATE DEMONIC ⚡</a>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h6>🔥 Power</h6>
+                    <p>120+ commands, 4 AI personalities, unlimited potential</p>
+                </div>
+                <div class="footer-section">
+                    <h6>⚡ Performance</h6>
+                    <p>24/7 operation, auto-recovery, lightning fast responses</p>
+                </div>
+                <div class="footer-section">
+                    <h6>🛡️ Security</h6>
+                    <p>Advanced protection, threat detection, secure operations</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 DEMONIC - The Ultimate WhatsApp AI Beast | Powered by Advanced AI Technology</p>
+                <p>⚡ Unleashing chaos, power, and intelligence in one unstoppable force ⚡</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Create particle effect
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Typing effect for header
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            setTimeout(type, 1000);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+
+            // Start typing effect
+            const headerTitle = document.querySelector('.header h1');
+            typeWriter(headerTitle, 'DEMONIC');
+
+            // Observe elements for animations
+            const animatedElements = document.querySelectorAll('.slide-in-left, .slide-in-right');
+            animatedElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+
+            // Add click effects
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+
+            // Add scroll effects
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+
+                // Parallax effect for particles
+                document.querySelector('.particles').style.transform = `translateY(${rate}px)`;
+            });
+
+        });
+
+        // Add some dynamic content
+        setInterval(() => {
+            const stats = document.querySelectorAll('.stat-card h3');
+            stats.forEach(stat => {
+                if (stat.textContent.includes('+')) {
+                    const base = parseInt(stat.textContent, 10);
+                    if (!Number.isNaN(base)) {
+                        const random = Math.floor(Math.random() * 10);
+                        stat.textContent = (base + random) + '+';
+                        setTimeout(() => {
+                            stat.textContent = base + '+';
+                        }, 2000);
+                    }
+                }
+            });
+        }, 5000);
+    </script>
+</body>
+</html>
